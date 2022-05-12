@@ -28,17 +28,18 @@ Fields:  ───┼─────────┼─────────�
 ```
 
 > The _private-is-private-public-is-public_ convention is contrasted again another 
-> common approach of making fields and methods unexported by default (in addition to types and interfaces). 
+> common approach of _also_ making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention
 > since types within the same package access each other private identifiers and doesn't
 > provide any indication of accessibility within the same package.
 
-See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
- 
 > Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
 > if the unexported type is returned by an exported function (or leaked in some other way). 
-> But the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use, so
+> But since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use,
 > this is generally not a concern.
+
+See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
+
 
 ## Go language spec
 
