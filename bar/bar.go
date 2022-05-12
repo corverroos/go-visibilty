@@ -1,6 +1,6 @@
 package bar
 
-import "github.com/corverroos/visibility/foo"
+import "github.com/corverroos/go-visibility/foo"
 
 func bar() {
 	// Exported identifiers of foo is accessible.

@@ -1,7 +1,7 @@
 package foo_test // <-- Note the package name
 
 import (
-	"github.com/corverroos/visibility/foo"
+	"github.com/corverroos/go-visibility/foo"
 	"testing"
 )
 
@@ -23,8 +23,8 @@ func TestExternal(t *testing.T) {
 
 	// Note that Bad leaks the private unexported type (which is generally an anti-pattern),
 	// and it's exported fields/methods is now accessible,
-	// but since we follow private-is-private-public-is-public convention, this isn't a problem.
-	if foo.Bad().PublicField != 0 { //
+	// but since we follow private-is-private-public-is-public convention, this isn't a concern.
+	if foo.Bad().PublicField != 0 {
 		t.Fail()
 	}
 
@@ -33,7 +33,7 @@ func TestExternal(t *testing.T) {
 
 // Exported is an exported type, but cannot be imported by other packages, since this is test code.
 // This doesn't clash with Exported type defined in `foo_internal_test.go` since
-// it is different packages.
+// it is in a different package (foo vs foo_test).
 type Exported struct{}
 
 func surprise(t *testing.T) {
@@ -43,6 +43,6 @@ func surprise(t *testing.T) {
 	foo.TestInternal(t)
 	var _ foo.TestExported
 
-	// But once again, since we follow private-is-private-public-is-public, this
-	// isn't a problem.
+	// But once again, since we follow private-is-private-public-is-public convention,
+	// this isn't a concern.
 }

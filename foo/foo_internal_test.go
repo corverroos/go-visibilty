@@ -21,7 +21,7 @@ func TestInternal(t *testing.T) {
 }
 
 // TestExported is an exported type from test code, so cannot be
-// imported by other packages, since this is .
+// imported by other packages.
 type TestExported struct {
 	Field1 int
 }

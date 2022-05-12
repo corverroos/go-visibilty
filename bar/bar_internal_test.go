@@ -1,7 +1,7 @@
 package bar // <-- Note the package name
 
 import (
-	"github.com/corverroos/visibility/foo"
+	"github.com/corverroos/go-visibility/foo"
 	"testing"
 )
 
