@@ -35,8 +35,7 @@ Fields:  ───┼─────────┼─────────�
 
 > Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
 > if the unexported type is returned by an exported function (or leaked in some other way). 
-> But since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use,
-> this is generally not a concern.
+> This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
 
 See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
 
