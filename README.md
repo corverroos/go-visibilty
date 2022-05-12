@@ -7,7 +7,7 @@ It proposes the **private-is-private-public-is-public** convention which is defi
 - Exported identifiers indicate **public-safe-to-use**; both by other packages (as per Go spec) AND other entities in the same package (by convention).
 - Unexported identifiers indicate **private-not-safe-to-use**; both by other packages (enforced by Go spec) AND other entities in the same package (by convention).
 - Types, interfaces, and functions should be unexported by default, ensuring "shy" code that is well isolated with small API surface and no* leaking of internals.
-- Accessibility/visibility of fields and methods is practically dictated by their type/interface so should follow the _public-safe-to-use_ vs _private-not-safe-to-use_ convention.
+- Accessibility/visibility of fields and methods is however practically dictated by their type/interface so are free follow the more nuanced _public-safe-to-use_ vs _private-not-safe-to-use_ convention.
 - This introduces additional semantic nuance to accessibility between identifiers _within_ the same package.
 
 It can be illustrated as follows:
@@ -27,10 +27,10 @@ Fields:  ───┼─────────┼─────────�
             └─────────┴──────────┘               └─────────┴──────────┘
 ```
 
-> The _private-is-private-public-is-public_ convention is contrasted again another 
+> The _private-is-private-public-is-public_ convention is contrasted against another 
 > common approach of _also_ making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention
-> since types within the same package access each other private identifiers and doesn't
+> since this leads to types within the same package accessing each other private identifiers and doesn't
 > provide any indication of accessibility within the same package.
 
 > Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
