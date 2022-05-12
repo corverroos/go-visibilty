@@ -30,16 +30,17 @@ Fields:  ───┼─────────┼─────────�
 > The _private-is-private-public-is-public_ convention is contrasted against another 
 > common approach of _also_ making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention
-> since this leads to types within the same package accessing each other private identifiers and doesn't
+> since this leads to types within the same package accessing each other's private identifiers and doesn't
 > provide any indication of accessibility within the same package.
-
-> Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
-> if the unexported type is returned by an exported function (or leaked in some other way). 
-> This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
 
 As with any convention, there are exceptions to the rule. If an exported type, needs to provide an "internal" API
 for other types in its own package, making that exported obviously leaks the internal API. Providing
 that internal API via unexported identifiers is fine in that case.
+
+Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
+if the unexported type is returned by an exported function (or leaked in some other way).
+This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
+This is also a derived second order risk, which is acceptable as a trade-ff for the improved semantic nuance.
 
 See [foo/foo.go](foo/foo.go) and other files for an illustration of this approach.
 
