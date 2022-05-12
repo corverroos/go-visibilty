@@ -75,13 +75,22 @@ Go programs are created by a [main package](https://go.dev/ref/spec#Program_exec
 Identifiers are [exported](https://go.dev/ref/spec#Exported_identifiers) if 
 the first character of the identifier name is an uppercase letter.
 Exported identifiers can in general by accessed by other packages, unless (as mentioned above) the
-identifier is defined is a main package or in test code.
+identifier is defined in a main package or in test code.
 ```go
-type unexported struct {..}
-func unexported() {..}
+func unexportedFunc() {..}
 
-type Exported struct {..}
-var Exported int
+type unexportedStruct struct {
+	ExportedField int
+	unexportedField int
+}
+
+var ExportedInt int
+
+type ExportedStruct struct {
+  ExportedField int
+  unexportedField int
+}
+
 ```
 
 
