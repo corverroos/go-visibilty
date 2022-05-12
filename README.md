@@ -41,7 +41,7 @@ As with any convention, there are exceptions to the rule. If an exported type, n
 for other types in its own package, making that exported obviously leaks the internal API. Providing
 that internal API via unexported identifiers is fine in that case.
 
-See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
+See [foo/foo.go](foo/foo.go) and other files for an illustration of this approach.
 
 ## Go language spec
 
