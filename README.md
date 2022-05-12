@@ -10,6 +10,23 @@ It proposes the **private-is-private-public-is-public** convention:
 - Accessibility/visibility of fields and methods is practically dictated by their type/interface so should follow the _public-safe-to-use_ vs _private-not-safe-to-use_ convention.
 - This introduces additional semantic nuance to accessibility between identifiers _within_ the same package.
 
+It can be illustrated as follows:
+```
+                    Types                                Interface
+
+              public  │ private                    public  │ private
+            ┌─────────┼──────────┐               ┌─────────┼──────────┐
+            │ Anyone  │ Other    │               │ Anyone  │ Other    │
+      public│ in      │ types in │         public│ in      │ types in │
+            │ world   │ package  │               │ world   │ package  │
+Fields:  ───┼─────────┼──────────┤   Methods: ───┼─────────┼──────────┤
+            │         │          │               │         │          │
+     private│ No-one  │ No-one   │        private│ Anit-   │ Anti-    │
+            │ else    │ else     │               │ pattern │ pattern  │
+            │         │          │               │         │          │
+            └─────────┴──────────┘               └─────────┴──────────┘
+```
+
 > The _private-is-private-public-is-public_ convention is contrasted again another 
 > common approach of making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention

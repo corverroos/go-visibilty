@@ -10,11 +10,12 @@ func Public() int {
 	return p.PublicMethod() * p.PublicField
 }
 
+// private is unexported, so accessible to other types in this package.
 type private struct {
-	// privateField is unexported so indicates private-not-safe-to-use by other types.
+	// privateField is unexported so indicates private-not-safe-to-use by all other types.
 	privateField int
 
-	// PublicField is exported so indicates public-safe-to-use by other types.
+	// PublicField is exported so indicates public-safe-to-use by all other types.
 	PublicField int
 }
 
