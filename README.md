@@ -37,8 +37,11 @@ Fields:  ───┼─────────┼─────────�
 > if the unexported type is returned by an exported function (or leaked in some other way). 
 > This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
 
-See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
+As with any convention, there are exceptions to the rule. If an exported type, needs to provide an "internal" API
+for other types in its own package, making that exported obviously leaks the internal API. Providing
+that internal API via unexported identifiers is fine in that case.
 
+See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
 
 ## Go language spec
 
