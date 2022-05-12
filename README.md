@@ -38,10 +38,11 @@ Fields:  ───┼─────────┼─────────�
 > common approach of _also_ making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention
 > since this leads to types within the same package accessing each other's private identifiers and doesn't
-> provide any indication of accessibility within the same package. Throwing out the baby with the bath water.
+> provide any indication of accessibility within the same package. 
 > 
 > This "everything private by default" is a good approach, but it is limiting and 
 > looses out on the opportunity for a more nuanced (but still safe) approach.
+> Throwing out the baby with the bath water.
 
 As with any convention, there are exceptions to the rule. If an exported type needs to provide an "internal" API
 for other types in its own package, making that exported obviously leaks the internal API. Providing
