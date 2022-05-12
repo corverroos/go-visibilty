@@ -13,10 +13,10 @@ It proposes the **private-is-private-public-is-public** convention:
 > The _private-is-private-public-is-public_ convention is contrasted again another 
 > common approach of making fields and methods unexported by default (in addition to types and interfaces). 
 > This goes against the _private-is-private-public-is-public_ convention
-> since types within the same package access each other private types and doesn't
+> since types within the same package access each other private identifiers and doesn't
 > provide any indication of accessibility within the same package.
 
-
+See [foo/foo.go](foo/foo.go) and other files for an illustration of this and examples.
  
 ## Go language spec
 
@@ -47,7 +47,7 @@ Go programs are created by a [main package](https://go.dev/ref/spec#Program_exec
 
 > Main packages cannot be imported by other packages. 
 > Main packages therefore only support _package internal_ test code, 
-> since _package external_ `package main_test` cannot import `main`.
+> since _package external_ `package main_test` would not be able to import the `main` package.
 
 Identifiers are [exported](https://go.dev/ref/spec#Exported_identifiers) if 
 the first character of the identifier name is an uppercase letter.
