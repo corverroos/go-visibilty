@@ -10,6 +10,10 @@ It proposes the **private-is-private-public-is-public** convention which is defi
 - Accessibility/visibility of fields and methods is however practically dictated by their type/interface so are free follow the more nuanced _public-safe-to-use_ vs _private-not-safe-to-use_ convention.
 - This introduces additional semantic nuance to accessibility between identifiers _within_ the same package.
 
+> The main aim of this convention is to introduce intra-package semantics for accessibility of
+> unexported types of the same package. Unexported types can therefore provide an indication 
+> of their safe-to-use APIs to other types in the same package.
+
 It can be illustrated as follows:
 ```
                     Types                                Interface
@@ -40,7 +44,7 @@ that internal API via unexported identifiers is fine in that case.
 Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
 if the unexported type is returned by an exported function (or leaked in some other way).
 This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
-This is also a derived second order risk, which is acceptable as a trade-ff for the improved semantic nuance.
+This is also a derived second order risk, which is acceptable as a trade-ff for the improved semantic nuance introduced by the convention.
 
 See [foo/foo.go](foo/foo.go) and other files for an illustration of this approach.
 
