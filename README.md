@@ -13,6 +13,9 @@ It proposes the **private-is-private-public-is-public** convention which is defi
 > The main aim of this convention is to introduce intra-package semantics for accessibility of
 > unexported types of the same package. Unexported types can therefore provide an indication 
 > of their safe-to-use APIs to other types in the same package.
+> 
+> The point is that if a private type is not somehow returned outside the package, then 
+> public fields/methods can be used to convey semantic meaning of a safe-to-use intra-package API.
 
 It can be illustrated as follows:
 ```
@@ -47,7 +50,7 @@ that internal API via unexported identifiers is fine in that case.
 Note that although exported fields and methods of unexported types can _technically_ be accessed by other packages
 if the unexported type is returned by an exported function (or leaked in some other way).
 This is generally not a concern since the _private-is-private-public-is-public_ convention states that public identifiers are safe-to-use.
-This is also a derived second order risk, which is acceptable as a trade-ff for the improved semantic nuance introduced by the convention.
+This is also a derived second order risk, which is acceptable as a tradeoff for the improved semantic nuance introduced by the convention.
 
 See [foo/foo.go](foo/foo.go) and other files for an illustration of this approach.
 
